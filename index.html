@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>kongdd_packages</h1>
+<p><a href="http://www.gnu.org/licenses/gpl-3.0.html"><img src="http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat" alt="License"></a></p>
+<blockquote>
+<p>Copyright (c) 2019 Dongdong Kong, China University of Geosciences</p>
+</blockquote>
+<blockquote>
+<p>Keep in mind that this repository is released under a GPL3 license,
+which permits commercial use but requires that the source code (of
+derivatives) is always open even if hosted as a web service.</p>
+</blockquote>
+<h2>Table of Content</h2>
+<p>[TOC]</p>
+<h2>Installation</h2>
+<p>This repository is a GEE package in <code>JavaScript</code>. You can access it by
+https://code.earthengine.google.com/?accept_repo=users/kongdd/public.</p>
+<h2>Functions</h2>
+<h3>1. Visualization</h3>
+<pre class="prettyprint source lang-javascript"><code>// Load package
+var pkg_vis  = require('users/kongdd/public:pkg_vis.js');
+</code></pre>
+<ul>
+<li>
+<p>gradient legend, <code>pkg_vis.grad_legend(viz, title, IsPlot, position)</code></p>
+<ul>
+<li>viz           Visualization parameters.</li>
+<li>position      String, legend position, e.g. &quot;bottom-left&quot;, &quot;bottom-right&quot;.</li>
+<li>palette       Corresponding colors.</li>
+</ul>
+</li>
+<li>
+<p>discrete legend, <code>pkg_vis.discrete_legend(names, palette, title, IsPlot, position)</code></p>
+<p>Legend examples: https://code.earthengine.google.com/c35e156e943370c1dd363732a5b59531.</p>
+</li>
+<li>
+<p>Layout
+<code>layout</code> works like <code>layout</code> in <strong>R</strong> and <code>subplot</code> in <strong>MATLAB</strong> , which is used to produce multiple maps.</p>
+</li>
+</ul>
+<h3>2. Temporal interpolation</h3>
+<pre class="prettyprint source lang-javascript"><code>// load package
+var pkg_smooth = require('users/kongdd/public:Math/pkg_smooth.js');
+</code></pre>
+<ul>
+<li>
+<p>Linear interpolation, <code>pkg_smooth.linearInterp(imgcol, frame, nodata)</code></p>
+<p>Example: https://code.earthengine.google.com/3b08f56a5f646104c742be584877e94e.</p>
+</li>
+<li>
+<p>Historical average interpolation: <code>pkg_smooth.historyInterp(imgcol, imgcol_his_mean, prop, nodata)</code></p>
+<p>Example: https://code.earthengine.google.com/3b08f56a5f646104c742be584877e94e.</p>
+</li>
+<li>
+<p><code>wBisquare_array</code> Bisquare weights updating function</p>
+</li>
+</ul>
+<h3>3. Trend Analysis</h3>
+<pre class="prettyprint source lang-javascript"><code>// Load package
+var pkg_trend = require('users/kongdd/public:Math/pkg_trend.js');
+</code></pre>
+<ul>
+<li>
+<p><code>aggregate_prop</code>: works like <code>aggregate</code> function in  <strong>R</strong> .</p>
+<pre class="prettyprint source lang-javascript"><code>// add the property of Year, YearStr, YearMonth, Season
+imgcol      = pkg_trend.imgcol_addSeasonProb(imgcol); 
+imgcol_year = pkg_trend.aggregate_prop(imgcol, &quot;year&quot;, 'mean');
+pkg_trend.aggregate_prop(ImgCol, prop, reducer, delta)
+</code></pre>
+</li>
+<li>
+<p>linearTrend, <code>pkg_trend.linearTrend(ImgCol, robust)</code></p>
+</li>
+</ul>
+<h3>4. Export data</h3>
+<pre class="prettyprint source lang-javascript"><code>// Load package
+var pkg_export = require('users/kongdd/public:pkg_export.js');
+</code></pre>
+<p><em><u>If you need to download in batch, suggest combining with <a href="https://github.com/kongdd/gee_monkey">gee_monkey</a>.</u></em></p>
+<ul>
+<li>
+<p><code>ExportImg</code>: Export <code>ee.Image</code> in degree, <code>pkg_export.ExportImg(img, task, options)</code></p>
+</li>
+<li>
+<p><code>ExportImgCol</code>: Export <code>ee.ImageCollection</code> in degree, <code>pkg_export.ExportImgCol(ImgCol, dateList, options, prefix)</code></p>
+</li>
+</ul>
+<h3>5. Palette</h3>
+<p>Show available palettes provided by <code>pkg_vis</code>. This function is modified from <a href="https://github.com/gena">Gena</a>‘s package.</p>
+<pre class="prettyprint source lang-javascript"><code>pkg_vis.showColors();
+</code></pre>
+<p><img src="man/Figure/RColorBrewer.svg" alt=""><br>
+<em><u>Figure 1. Available palettes.</u></em></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="pkg_export.html">pkg_export</a></li><li><a href="pkg_main.html">pkg_main</a></li><li><a href="pkg_mov.html">pkg_mov</a></li><li><a href="pkg_vis.html">pkg_vis</a></li><li><a href="pkg_whit.html">pkg_whit</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addTimeBand">addTimeBand</a></li><li><a href="global.html#addYearProp">addYearProp</a></li><li><a href="global.html#array2imgcol">array2imgcol</a></li><li><a href="global.html#bands2imgcol">bands2imgcol</a></li><li><a href="global.html#getQABits">getQABits</a></li><li><a href="global.html#historyInterp">historyInterp</a></li><li><a href="global.html#img_setDate">img_setDate</a></li><li><a href="global.html#imgRegion">imgRegion</a></li><li><a href="global.html#LogGamma">LogGamma</a></li><li><a href="global.html#qc2bands">qc2bands</a></li><li><a href="global.html#replace_mask">replace_mask</a></li><li><a href="global.html#setweights">setweights</a></li><li><a href="global.html#zeroPad">zeroPad</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Sep 10 2021 16:36:43 GMT+0800 (China Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

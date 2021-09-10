@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: pkg_export</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: pkg_export</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>pkg_export</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Export GEE Asset</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".pkgs.ExportImg"><span class="type-signature">(static) </span>pkgs.ExportImg<span class="signature">(Image:, task, options)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>ExportImg</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Image:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ee.Image</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The image to export.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>task</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>: The file name of exported image</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Dictionary</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><ul>
+<li><code>type</code>         : export type, one of 'asset', 'cloud' and 'drive'</li>
+<li><code>range</code>        : [lon_min, lat_min, lon_max, lat_max]</li>
+<li><code>cellsize</code>     : cellsize (in the unit of degree), used to calculate dimension.</li>
+<li><code>folder</code>       : The Folder that the export will reside in. If  export type is cloud or asset, folder need to be absolute path.</li>
+<li><code>crs</code>          : CRS to use for the exported image.</li>
+<li><code>crsTransform</code> : Affine transform to use for the exported image. Requires &quot;crs&quot; to be defined.</li>
+<li><code>scale</code>        : (number) Resolution in meters per pixel. Defaults to 1000.</li>
+<li><code>dimensions</code>   : Takes either a single positive integer as the maximum dimension
+or &quot;WIDTHxHEIGHT&quot; where WIDTH and HEIGHT are each positive integers.</li>
+<li><code>verbose</code>      : boolean</li>
+</ul></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".pkgs.ExportImg_grids"><span class="type-signature">(static) </span>pkgs.ExportImg_grids<span class="signature">(Image, task, options)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <hr>
+<h3>Export Image into multiple grids</h3>
+<p><code>range</code>, <code>nrow</code> and <code>ncol</code> must be specified in options.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Image</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>task</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".pkgs.ExportImgCol"><span class="type-signature">(static) </span>pkgs.ExportImgCol<span class="signature">(ImgCol, dateList, options, prefix)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>&quot;region&quot; and &quot;dimensions&quot; and either &quot;crs_transform&quot; or &quot;scale&quot; may not be specified together.
+If <code>dimension</code> provided, scale will be ignored.</p>
+<ul>
+<li>options to clip regional data:</li>
+</ul>
+<ol>
+<li>crs + region + crsTransform    | √</li>
+<li>crs + region + dimensions      | √ (resample)</li>
+<li>crs + region + scale           | √</li>
+</ol>
+<p>You must Can't (20191228):</p>
+<ol>
+<li>crsTransform and dimensions can't occur in the same time, error.</li>
+<li>crs + region  | resampled, unknown cellsize (scale = 1000), out of control (try to fix this situation)</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ImgCol</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ee.ImageCollection</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The ImageCollection to export.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dateList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Corresponding date string list of ImgCol</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">options</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>range</code>   : [lon_min, lat_min, lon_max, lat_max]</p>
+<ul>
+<li><code>cellsize</code>: cellsize (in the unit of degree), used to calculate dimension.</li>
+<li><code>type</code>    : export type, one of 'asset', 'cloud' and 'drive'</li>
+<li><code>folder</code>  : The Folder that the export will reside in. If export type is cloud
+or asset, folder need to be absolute path.</li>
+<li><code>crs</code>     : CRS to use for the exported image.</li>
+<li><code>crsTransform</code>: Affine transform to use for the exported image. Requires &quot;crs&quot; to be defined.</li>
+<li><code>dimensions</code>  : If specified, the calculated dimension from <code>cellsize</code> and
+<code>range</code> will be abandoned.</li>
+<li><code>filterProp</code>: The property used for filter a centain image. The default value
+is <code>system:time_start</code>, this parameter is for landsat.
+When export landsat, filterProp can be 'system:index'.</li>
+</ul></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The prefix of the exported file name.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var imgcol = ee.ImageCollection("MODIS/006/MCD12Q1");var pkgs = require('users/kongdd/public:pkgs.js');var img = imgcol.first().select(0);var prj = pkgs.getProj(imgcol);var options = {    type: "drive",    range: [95, 30, 120, 42], //[-180, -60, 180, 90],    cellsize: 1 / 240,    // crsTransform : [463.312716528, 0, -20015109.354, 0, -463.312716527, 10007554.677], // prj.crsTransform;    // scale        : 463.3127165275, // prj.scale    crs: 'EPSG:4326', // 'SR-ORG:6974', // EPSG:4326    folder: 'PMLV2'};pkgs.ExportImg(img, "task", options);pkgs.ExportImgCol(imgcol, 'MCD12Q1_06_', options);</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".pkgs.ExportImgCol_multiBands"><span class="type-signature">(static) </span>pkgs.ExportImgCol_multiBands<span class="signature">(imgcol, prefix, options)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>ExportImgCol_batch</p>
+<p>ImgCol was converted into multiple-band image first, then export.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imgcol</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".pkgs.ExportTable"><span class="type-signature">(static) </span>pkgs.ExportTable<span class="signature">(ImgCol, points, save, file)</span><span class="type-signature"> &rarr; {FeatureCollection}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Export_fs</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ImgCol</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ImageCollection</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the ImageCollection data you want to
+export.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>points</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">FeatureCollection</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>points used to clip ImgCol</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>save</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>whether save or not</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>filename</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>If save = false, will return FeatureCollection.
+Otherwise, none will be return.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">FeatureCollection</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".pkgs.getProj"><span class="type-signature">(static) </span>pkgs.getProj<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Get projection info of ee.Image or ee.ImageCollection</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".pkgs.make_grid"><span class="type-signature">(static) </span>pkgs.make_grid<span class="signature">(range, cellsize)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>make grid</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>range</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cellsize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>ee.FeatureCollection</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="pkg_export.html">pkg_export</a></li><li><a href="pkg_main.html">pkg_main</a></li><li><a href="pkg_mov.html">pkg_mov</a></li><li><a href="pkg_vis.html">pkg_vis</a></li><li><a href="pkg_whit.html">pkg_whit</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addTimeBand">addTimeBand</a></li><li><a href="global.html#addYearProp">addYearProp</a></li><li><a href="global.html#array2imgcol">array2imgcol</a></li><li><a href="global.html#bands2imgcol">bands2imgcol</a></li><li><a href="global.html#getQABits">getQABits</a></li><li><a href="global.html#historyInterp">historyInterp</a></li><li><a href="global.html#img_setDate">img_setDate</a></li><li><a href="global.html#imgRegion">imgRegion</a></li><li><a href="global.html#LogGamma">LogGamma</a></li><li><a href="global.html#qc2bands">qc2bands</a></li><li><a href="global.html#replace_mask">replace_mask</a></li><li><a href="global.html#setweights">setweights</a></li><li><a href="global.html#zeroPad">zeroPad</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Sep 10 2021 16:36:43 GMT+0800 (China Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
